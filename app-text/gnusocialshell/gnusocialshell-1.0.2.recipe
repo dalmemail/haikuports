@@ -7,7 +7,7 @@ REVISION="1"
 SOURCE_URI="https://github.com/dalmemail/GnuSocialShell/archive/7bc0030dca93eecb8366090a29c53acfc0b93d58.zip"
 SOURCE_DIR="GnuSocialShell-7bc0030dca93eecb8366090a29c53acfc0b93d58"
 
-ARCHITECTURES="!x86_gcc2 x86 x86_64"
+ARCHITECTURES="x86_gcc2 ?x86 ?x86_64"
 SECONDARY_ARCHITECTURES="x86"
 
 PROVIDES="
