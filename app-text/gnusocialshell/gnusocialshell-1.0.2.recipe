@@ -1,1 +1,43 @@
-# This will be the GnuSocialShell recipe
+SUMMARY="Native GnuSocial client for Haiku"
+DESCRIPTION="GnuSocialShell is an free and simple GnuSocial client for Haiku."
+HOMEPAGE="http://gnusocialshell.amayaos.com"
+COPYRIGHT="2016 Daniel Martin"
+LICENSE="GNU GPL v3"
+REVISION="1"
+SOURCE_URI="https://github.com/dalmemail/GnuSocialShell/archive/7bc0030dca93eecb8366090a29c53acfc0b93d58.zip"
+SOURCE_DIR="GnuSocialShell-7bc0030dca93eecb8366090a29c53acfc0b93d58"
+
+ARCHITECTURES="!x86_gcc2 x86 x86_64"
+SECONDARY_ARCHITECTURES="x86"
+
+PROVIDES="
+	GnuSocialShell$secondaryArchSuffix = $portVersion
+	app:GnuSocialShell = $portVersion
+	"
+REQUIRES="
+	haiku$secondaryArchSuffix
+	lib:libcurl$secondaryArchSuffix
+	"
+
+BUILD_REQUIRES="
+	haiku${secondaryArchSuffix}_devel
+	devel:libcurl$secondaryArchSuffix
+	"
+BUILD_PREREQUIRES="
+	makefile_engine
+	cmd:gcc$secondaryArchSuffix
+	cmd:ld$secondaryArchSuffix
+	cmd:make
+	cmd:pkg_config$secondaryArchSuffix
+	"
+
+BUILD()
+{
+	make
+}
+
+INSTALL()
+{
+	mkdir -p $binDir
+	cp gnusocialshell $binDir
+}
